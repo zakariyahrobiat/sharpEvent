@@ -2,7 +2,7 @@
 
 const Footer = () => {
   return (
-    <div className="bg-[#D8DAE8] px-3 md:px-20 py-5 w-full md:flex justify-between gap-10 text-left">
+    <div className="bg-[#D8DAE8] px-3 md:px-20 py-5 w-full md:flex justify-between gap-10 text-left mt-10 font-[Roboto]">
         <div className="w-2/3 md:w-[30%] md:px-16">
         <h1 className="text-2xl font-extrabold text-[#0166FF] pb-3">SHARP EVENT</h1>
         <p className="text-xl font-semibold leading-6">Sharp Event is a service provider site for finding the best places to host your events</p>

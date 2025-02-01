@@ -1,7 +1,7 @@
 interface filterProps{
     name: string,
     label:string,
-    id:string
+    id:string, 
     
 }
 

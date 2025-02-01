@@ -1,28 +1,18 @@
 import CustomFilters from "./CustomFilters"
 import CustomInput from "./CustomInput"
-import React, { useState } from "react";
-
+import { useAuth } from "../context/AuthContext";
 
 const Sidebar = () => {
-    const [minPrice, setMinPrice] = useState(123);
-    const [maxPrice, setMaxPrice] = useState(40000);
-  
-    const handleMinChange = (e:React.ChangeEvent<HTMLInputElement>) => {
-      setMinPrice(Number(e.target.value));
-    };
-  
-    const handleMaxChange = (e :React.ChangeEvent<HTMLInputElement>) => {
-      setMaxPrice(Number(e.target.value));
-    };
+  const {input, handleInput} = useAuth()   
   return (
-    <div className="hidden md:block w-[30%] text-left ">
+    <div className="hidden md:block w-[30%] text-left font-[inter] ">
         <div className="bg-[#F8F8F8] p-10">
             <p className="text-xl font-bold text-black">Your Search</p>
             <form action="" className="py-3">
-                <CustomInput name="event" id="event" label="Event Type" placeholder="Wedding"/>
-                <CustomInput name="location" id="location" label="Location" placeholder="Lagos"/> 
-                <CustomInput name="price" id="price" label="Price Range" placeholder="&#8358;20k - &#8358;40k"/> 
-                <CustomInput name="rating" id="rating" label="Rating" placeholder="Excellent"/> 
+                <CustomInput name="event" id="event" label="Event Type" placeholder="Wedding" value={input.event}/>
+                <CustomInput name="location" id="location" label="Location" placeholder="Lagos" value={input.location}/> 
+                <CustomInput name="price" id="price" label="Price Range" placeholder="&#8358;20k - &#8358;40k" value={input.price}/> 
+                <CustomInput name="rating" id="rating" label="Rating" placeholder="Excellent" value={input.rate}/> 
                 <button className="bg-[#0166FF] py-2 mt-5 text-white rounded-xl text-sm font-semibold w-full">Search</button>
             </form>
         </div>
@@ -45,19 +35,21 @@ const Sidebar = () => {
       <div className="relative ">
         <input
           type="range"
-          min="123"
+          min="0"
           max="40000"
-          value={minPrice}
-          onChange={handleMinChange}
-          className="absolute left-0 w-f"
+          value={input.minPrice}
+          onChange={handleInput}
+          className="absolute left-0 w-full"
+          name="minPrice"
         />
         <input
           type="range"
-          min="123"
+          min="0"
           max="40000"
-          value={maxPrice}
-          onChange={handleMaxChange}
+          value={input.maxPrice}
+          onChange={handleInput}
           className="absolute right-0 w-full "
+           name="maxPrice"
         />
       </div>
 
@@ -67,18 +59,20 @@ const Sidebar = () => {
         <label htmlFor="" className="text-sm font-semibold text-[#767676]">Min Price</label>
         <input
           type="number"
-          value={minPrice}
-          onChange={handleMinChange}
+          value={input.minPrice}
+          onChange={handleInput}
           className="border px-2 py-1 w-full rounded-sm border-[#767676] text-xs font-semibold text-black"
+           name="minPrice"
         />
         </div>
        <div>
         <label htmlFor="" className="text-sm font-semibold text-[#767676]">Max Price</label>
         <input
           type="number"
-          value={maxPrice}
-          onChange={handleMaxChange}
+          value={input.maxPrice}
+          onChange={handleInput}
           className="border px-2 py-1 w-full rounded-sm border-[#767676] text-xs font-semibold text-black"
+           name="maxPrice"
         />
         </div>
       </div>

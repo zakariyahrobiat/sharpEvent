@@ -2,7 +2,7 @@
 
 const Navbar = () => {
   return (
-    <div className="flex justify-between items-center bg-white px-3 md:px-20 py-5 ">
+    <div className="flex justify-between items-center bg-white px-3 md:px-20 py-5 font-[inter] ">
       
         <p className="text-2xl font-extrabold text-[#0166FF]">SHARP EVENT</p>
         <p className="text-base font-bold hidden md:block">List Your Space</p>
