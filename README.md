@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -48,3 +49,7 @@ export default tseslint.config({
   },
 })
 ```
+=======
+# sharpEvent
+This is an assessment by The bass build with React, Typescript and tailwindcss
+>>>>>>> 497198719f86924f7aae00e0680fc85760919d9d
