@@ -1,5 +1,5 @@
-import CustomFilters from "./CustomFilters"
-import CustomInput from "./CustomInput"
+import CustomFilters from "./customFilter/CustomFilters";
+import CustomInput from "./customInput/CustomInput"
 import { useAuth } from "../context/AuthContext";
 
 const Sidebar = () => {
@@ -9,10 +9,10 @@ const Sidebar = () => {
         <div className="bg-[#F8F8F8] p-10">
             <p className="text-xl font-bold text-black">Your Search</p>
             <form action="" className="py-3">
-                <CustomInput name="event" id="event" label="Event Type" placeholder="Wedding" value={input.event}/>
-                <CustomInput name="location" id="location" label="Location" placeholder="Lagos" value={input.location}/> 
-                <CustomInput name="price" id="price" label="Price Range" placeholder="&#8358;20k - &#8358;40k" value={input.price}/> 
-                <CustomInput name="rating" id="rating" label="Rating" placeholder="Excellent" value={input.rate}/> 
+                <CustomInput name="event" id="event" label="Event Type" placeholder="Wedding" value={input.event} onChange={handleInput}/>
+                <CustomInput name="location" id="location" label="Location" placeholder="Lagos" value={input.location} onChange={handleInput}/> 
+                <CustomInput name="price" id="price" label="Price Range" placeholder="&#8358;20k - &#8358;40k" value={input.price} onChange={handleInput}/> 
+                <CustomInput name="rating" id="rating" label="Rating" placeholder="Excellent" value={input.rate} onChange={handleInput}/> 
                 <button className="bg-[#0166FF] py-2 mt-5 text-white rounded-xl text-sm font-semibold w-full">Search</button>
             </form>
         </div>

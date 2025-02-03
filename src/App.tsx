@@ -1,6 +1,6 @@
-import Footer from "./component/Footer"
+import Footer from "./component/footer/Footer"
 import Dashboard from "./component/Dashboard"
-import Navbar from "./component/Navbar"
+import Navbar from "./component/navbar/Navbar"
 import Sidebar from "./component/Sidebar"
 import BackgroundLayout from "./layout/BackgroundLayout"
 

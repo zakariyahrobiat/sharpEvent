@@ -10,15 +10,15 @@ const Footer = () => {
     <div className="hidden md:flex justify-between items-start md:w-[70%] md:px-20">
     <div >
         <h2 className="text-2xl font-semibold text-black pb-3">Our service</h2>
-        <p className="text-xl font-semibold text-black pb-1">Help center</p>
-        <p className="text-xl font-semibold text-black pb-1">FAQ</p>
+        <a href="/" className="text-xl font-semibold text-black pb-1">Help center</a>
+        <a href="/" className="text-xl font-semibold text-black pb-1">FAQ</a>
     </div>
     <div>
         <h2 className="text-2xl font-semibold text-black pb-3">Company</h2>
-        <p className="text-xl font-semibold text-black pb-1">About us</p>
-        <p className="text-xl font-semibold text-black pb-1">Host</p>
-        <p className="text-xl font-semibold text-black pb-1">Activities</p>
-        <p className="text-xl font-semibold text-black pb-1">Cities</p>
+        <a href="/" className="text-xl font-semibold text-black pb-1">About us</a>
+        <a href="/" className="text-xl font-semibold text-black pb-1">Host</a>
+        <a href="/" className="text-xl font-semibold text-black pb-1">Activities</a>
+        <a href="/" className="text-xl font-semibold text-black pb-1">Cities</a>
     </div>
     <div>
         <h2 className="text-2xl font-semibold text-black pb-3">Get in touch</h2>
@@ -31,15 +31,15 @@ const Footer = () => {
       <div className=" w-full grid grid-cols-2 justify-around">
     <div className="w-full" >
         <h2 className="text-2xl font-semibold text-black pb-3">Our service</h2>
-        <p className="text-xl font-semibold text-black pb-1">Help center</p>
-        <p className="text-xl font-semibold text-black pb-1">FAQ</p>
+        <a href="/" className="text-xl font-semibold text-black pb-1">Help center</a>
+        <a href="/" className="text-xl font-semibold text-black pb-1">FAQ</a>
     </div>
     <div className="w-full">
         <h2 className="text-2xl font-semibold text-black pb-3">Company</h2>
-        <p className="text-xl font-semibold text-black pb-1">About us</p>
-        <p className="text-xl font-semibold text-black pb-1">Host</p>
-        <p className="text-xl font-semibold text-black pb-1">Activities</p>
-        <p className="text-xl font-semibold text-black pb-1">Cities</p>
+        <a href="/" className="text-xl font-semibold text-black pb-1">About us</a>
+        <a href="/" className="text-xl font-semibold text-black pb-1">Host</a>
+        <a href="/" className="text-xl font-semibold text-black pb-1">Activities</a>
+        <a href="/" className="text-xl font-semibold text-black pb-1">Cities</a>
     </div>
     </div>
     <div>

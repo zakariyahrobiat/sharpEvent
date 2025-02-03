@@ -7,7 +7,7 @@ interface inputFields{
     event: string,
     location: string,
     price: string,
-    rate: string
+    rate: string,
 }
 interface dataProps{
     id:number
@@ -32,7 +32,7 @@ interface dataProps{
     handleInput: (e:React.ChangeEvent<HTMLInputElement>) => void,
     input:inputFields
   }
-const AuthContext = createContext<AuthContextType>({
+export const AuthContext = createContext<AuthContextType>({
     data: [],
     block: false,
     handleBlock: () => {},
