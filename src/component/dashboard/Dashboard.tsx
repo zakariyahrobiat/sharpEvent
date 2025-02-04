@@ -23,10 +23,11 @@ const Dashboard = () => {
         </h3>
         <div className="flex justify-between items-center gap-2">
           <img src={images} alt="images" srcSet="" onClick={handleFlex} />
-          <img src={image} alt="images" srcSet="" onClick={handleBlock} />
+          <img src={image} alt="image" srcSet="" onClick={handleBlock} />
         </div>
       </div>
       <div
+        data-testid="dashboard"
         className={`grid grid-cols-1 justify-between w-full py-10 gap-10 ${
           block ? "md:grid-cols-1" : "md:grid-cols-2"
         }`}

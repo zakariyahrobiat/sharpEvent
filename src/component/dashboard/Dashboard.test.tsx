@@ -1,65 +1,59 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import Dashboard from "./Dashboard";
-import { describe } from "vitest";
-import { AuthContext } from "../../context/AuthContext";
-import { vi } from "vitest";
-describe("renders the Dashboard with items", () => {
-  const mockHandlePageChange = vi.fn();
-  const mockHandleBlock = vi.fn();
-  const mockHandleFlex = vi.fn();
+import { Context } from "../../context/AuthContext";
 
-  const mockContextValue = {
-    block: false,
-    currentPage: 1,
-    handlePageChange: mockHandlePageChange,
-    handleBlock: mockHandleBlock,
-    handleFlex: mockHandleFlex,
-    totalPages: 3,
-    currentItems: [
-      {
-        id: 1,
-        name: "Grand Wedding Hall",
-        image: "image-url",
-        direction: "Lagos, Nigeria",
-        facilities: "Parking, Wi-Fi, Catering",
-        rating: "4.5",
-        rate: "Excellent",
-        price: 35000,
-        reviews: "200 reviews",
-      },
-    ],
-    input: {
-      minPrice: 0,
-      maxPrice: 40000,
-      event: "",
-      location: "",
-      price: "",
-      rate: "",
-    },
-    handleInput: vi.fn(),
+describe("Dashboard Component", () => {
+  const renderDashboard = () => {
+    return render(
+      <Context>
+        <Dashboard />
+      </Context>
+    );
   };
 
-  it("renders the Dashboard with items", () => {
-    render(
-      <AuthContext.Provider value={mockContextValue}>
-        <Dashboard />
-      </AuthContext.Provider>
-    );
-
-    expect(screen.getByText(/140 search results/i)).toBeInTheDocument();
-    expect(screen.getByText(/Grand Wedding Hall/i)).toBeInTheDocument();
-    expect(screen.getByText(/Lagos, Nigeria/i)).toBeInTheDocument();
-    expect(screen.getByText(/₦35000/i)).toBeInTheDocument();
+  test("renders search results text", () => {
+    renderDashboard();
+    expect(screen.getByText(/140 search results for/i)).toBeInTheDocument();
   });
-  it("handles pagination click", () => {
-    render(
-      <AuthContext.Provider value={mockContextValue}>
-        <Dashboard />
-      </AuthContext.Provider>
-    );
 
-    const pageButton = screen.getByText("2");
-    fireEvent.click(pageButton);
-    expect(mockHandlePageChange).toHaveBeenCalledWith(2);
+  test("renders header text", () => {
+    renderDashboard();
+    expect(
+      screen.getByText(/Wedding, Lagos ₦20k - ₦40k, Excellent/i)
+    ).toBeInTheDocument();
+  });
+
+  test("toggles view layout when clicking view buttons", () => {
+    renderDashboard();
+    const flexButton = screen.getByAltText("images");
+    const blockButton = screen.getByAltText("image");
+
+    fireEvent.click(flexButton);
+    const gridContainer = screen.getByTestId("dashboard");
+    expect(gridContainer).toHaveClass("md:grid-cols-2");
+
+    fireEvent.click(blockButton);
+    expect(gridContainer).toHaveClass("md:grid-cols-1");
+  });
+
+  test("renders pagination buttons and handles page changes", () => {
+    renderDashboard();
+    const paginationButtons = screen.getAllByRole("button");
+
+    paginationButtons.forEach((button, index) => {
+      if (index === 0) {
+        expect(button).toHaveClass("bg-[#0166FF]");
+      }
+      fireEvent.click(button);
+      expect(button).toHaveClass("bg-[#0166FF]");
+    });
+  });
+
+  test("renders booking options button", () => {
+    renderDashboard();
+    const bookingButtons = screen.getAllByText(/See booking options/i);
+    bookingButtons.forEach((button) => {
+      expect(button).toHaveClass("bg-[#0166FF]");
+    });
   });
 });
